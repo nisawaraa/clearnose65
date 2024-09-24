@@ -1,7 +1,5 @@
 pickle
 streamlit
-pickle
 pandas
 numpy
 seaborn
-scikit-learn
