@@ -2,7 +2,6 @@ import streamlit as st
 import pickle
 import pandas as pd
 import numpy as np
-import seaborn as sns
 
 # Load the model
 model_path  = 'model.pkl'
@@ -60,5 +59,5 @@ sns.histplot(df['Feature1'], bins=20, kde=True, ax=ax, color='pink', alpha=0.7)
 ax.set_title('Distribution of Feature 1')
 ax.set_xlabel('Feature 1')
 ax.set_ylabel('Frequency')
-st.pyplot(fig)
 
+st.pyplot(fig)
