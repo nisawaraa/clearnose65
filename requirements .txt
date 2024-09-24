@@ -4,3 +4,4 @@ pickle
 pandas
 numpy
 seaborn
+scikit-learn
