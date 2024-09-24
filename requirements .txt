@@ -3,5 +3,4 @@ streamlit
 pickle
 pandas
 numpy
-matplotlib
 seaborn
