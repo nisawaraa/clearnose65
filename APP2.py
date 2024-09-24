@@ -1,3 +1,4 @@
+import joblib
 import streamlit as st
 import pickle
 import pandas as pd
@@ -5,7 +6,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-model_path  = 'model.pkl'
+# Load the model
+model_path = r'C:\web\clearnose\clearnost_Streamlit\model (2).pkl'
 with open(model_path, 'rb') as file:
     model = pickle.load(file)
 
@@ -16,28 +18,23 @@ st.set_page_config(
     layout="wide"
 )
 
-
 # Header
 st.title("Clearnose")
-st.write("Prediction Price Clearnose ")
+st.write("Prediction Price Clearnose")
 
-
-# Sidebar
 # Sidebar
 st.sidebar.header("User Input")
 st.sidebar.text("Adjust the settings below to see how the model predictions change.")
 
 # Input Controls in Sidebar
-feature2 = st.sidebar.slider("Discount", min_value=0, max_value=100, value=50)
-feature3 = st.sidebar.slider("Reviews_rate", min_value=0, max_value=100, value=50)
-
+Discount = st.sidebar.slider("Discount", min_value=0, max_value=100, value=50)
+Reviews_rate = st.sidebar.slider("Reviews Rate", min_value=0, max_value=5, value=0)
 
 # Creating a DataFrame for the input features
 input_data = pd.DataFrame({
-    'Feature2': [feature2],
-    'Feature3': [feature3],
+    'Discount': [Discount],
+    'Reviews_rate': [Reviews_rate],
 })
-
 
 # Prediction
 if st.sidebar.button('Predict'):
@@ -48,17 +45,16 @@ if st.sidebar.button('Predict'):
 # Display a plot for better visualization
 st.subheader("Feature Distribution")
 
-# Generating sample data for plotting (replace with your actual data if available)
-data = {
-    'Feature1': np.random.randn(100),
-    'Feature2': np.random.randn(100) * 100
-}
-df = pd.DataFrame(data)
+# Sample data for plotting (you should replace this with your actual data)
+np.random.seed(0)  # For reproducibility
+df = pd.DataFrame({
+    'Discount': np.random.randint(0, 101, size=100),
+    'Reviews_Rate': np.random.randint(0, 101, size=100),
+})
 
 fig, ax = plt.subplots()
-sns.histplot(df['Feature1'], bins=20, kde=True, ax=ax, color='pink', alpha=0.7)
-ax.set_title('Distribution of Feature 1')
-ax.set_xlabel('Feature 1')
+sns.histplot(df['Discount'], bins=20, kde=True, ax=ax, color='pink', alpha=0.7)
+ax.set_title('Distribution of Discount')
+ax.set_xlabel('Discount')
 ax.set_ylabel('Frequency')
-
 st.pyplot(fig)
