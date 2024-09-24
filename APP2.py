@@ -64,6 +64,3 @@ ax.set_xlabel('Feature 1')
 ax.set_ylabel('Frequency')
 st.pyplot(fig)
 
-# Additional Information
-st.markdown
-
