@@ -51,11 +51,11 @@ if st.sidebar.button('Predict'):
 st.subheader("Feature Distribution")
 
 # Generating sample data for plotting (replace with your actual data if available)
-# data = {
-#     'Feature1': np.random.randn(100),
-#     'Feature2': np.random.randn(100) * 100
-# }
-# df = pd.DataFrame(data)
+data = {
+    'Feature1': np.random.randn(100),
+    'Feature2': np.random.randn(100) * 100
+}
+df = pd.DataFrame(data)
 
 fig, ax = plt.subplots()
 sns.histplot(df['Feature1'], bins=20, kde=True, ax=ax, color='pink', alpha=0.7)
